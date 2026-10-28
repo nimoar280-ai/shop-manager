@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stock — My Little Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="stock">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span data-shop-name>My Little Shop</span><small>Private Shop Manager</small></div>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link " data-page="home" href="index.html">Home</a>
+        <a class="nav-link active" data-page="stock" href="stock.html">Stock</a>
+        <a class="nav-link " data-page="sales" href="sales.html">Sales</a>
+        <a class="nav-link " data-page="expenses" href="expenses.html">Expenses</a>
+        <a class="nav-link " data-page="drawings" href="drawings.html">Drawings</a>
+        <a class="nav-link " data-page="income" href="income.html">Income</a>
+        <a class="nav-link " data-page="settings" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Stock</h1>
+        <div><span data-currency-code>GHS</span></div>
+      </header>
+      <div class="page">
+        <div class="page-header">
+          <div>
+            <h2>Stock</h2>
+            <p>Manage inventory, average cost and reorder levels.</p>
+          </div>
+          <div class="actions"><button class="btn btn-primary" data-action="add-product">Add Product</button></div>
+        </div>
+        
+<section class="card" style="margin-bottom:18px">
+  <h3>How stock costing works</h3>
+  <p class="help-text">Each restock is kept as its own cost batch. Sales use <strong>FIFO</strong>: the oldest batch is sold first. If a sale uses more than one batch, the sale records the actual cost from each batch. “Current Avg. Cost” is only a summary of the remaining stock layers.</p>
+</section>
+<div class="stats-grid stats-grid-compact">
+  <section class="stat-card"><div class="stat-label">Stock value at cost</div><div class="stat-value" id="stockInventoryValue">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Products to reorder</div><div class="stat-value" id="stockLowCount">0</div></section>
+</div>
+<div class="filters"><input id="stockSearch" type="search" placeholder="Search product name…" aria-label="Search products"><select id="stockStatusFilter" aria-label="Filter stock status"><option value="All">All stock statuses</option><option value="Low">Low stock</option><option value="Healthy">In stock</option></select><button class="btn" data-action="export-stock-csv">Export stock CSV</button><button class="btn" data-action="print-report">Print stock report</button></div>
+<section class="card">
+  <div class="table-wrap">
+    <table id="stockTable">
+      <thead><tr><th>Product</th><th>Qty</th><th>Avg. Cost</th><th>Selling Price</th><th>Unit Margin</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody id="stockBody"></tbody>
+    </table>
+        <div class="list-toggle-wrap">
+          <button id="stockListToggle" class="btn btn-secondary list-toggle" type="button" hidden>
+            More products
+          </button>
+        </div>
+  </div>
+</section>
+<section class="card" style="margin-top:18px">
+  <div class="section-heading-row"><div><h3>Recent stock movements</h3><p class="help-text">Opening stock, restocks, sales and reversals.</p></div></div>
+  <div class="table-wrap"><table><thead><tr><th>Date & time</th><th>Product</th><th>Movement</th><th>Change</th><th>Stock after</th><th>Note</th></tr></thead><tbody id="stockMovementsBody"></tbody></table></div>
+</section>
+
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drawings — My Little Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="drawings">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span data-shop-name>My Little Shop</span><small>Private Shop Manager</small></div>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link " data-page="home" href="index.html">Home</a>
+        <a class="nav-link " data-page="stock" href="stock.html">Stock</a>
+        <a class="nav-link " data-page="sales" href="sales.html">Sales</a>
+        <a class="nav-link " data-page="expenses" href="expenses.html">Expenses</a>
+        <a class="nav-link active" data-page="drawings" href="drawings.html">Drawings</a>
+        <a class="nav-link " data-page="income" href="income.html">Income</a>
+        <a class="nav-link " data-page="settings" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Drawings</h1>
+        <div><span data-currency-code>GHS</span></div>
+      </header>
+      <div class="page">
+        <div class="page-header">
+          <div>
+            <h2>Drawings</h2>
+            <p>Track drawing dates, winners, entries and prizes.</p>
+          </div>
+          <div class="actions"><button class="btn btn-primary" data-action="new-drawing">New Drawing</button></div>
+        </div>
+        
+<div class="stats-grid">
+  <section class="stat-card"><div class="stat-label">Entries Today</div><div class="stat-value" id="entriesToday">0</div></section>
+  <section class="stat-card"><div class="stat-label">Drawings</div><div class="stat-value" id="drawingCount">0</div></section>
+  <section class="stat-card"><div class="stat-label">Prizes Awarded</div><div class="stat-value" id="prizesAwarded">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Data Storage</div><div class="stat-value">Local</div></section>
+</div>
+<section class="card">
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Winner</th><th>Entries</th><th>Prize</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody id="drawingsBody"></tbody>
+    </table>
+  </div>
+</section>
+
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

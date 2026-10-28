@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sales — My Little Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="sales">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span data-shop-name>My Little Shop</span><small>Private Shop Manager</small></div>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link " data-page="home" href="index.html">Home</a>
+        <a class="nav-link " data-page="stock" href="stock.html">Stock</a>
+        <a class="nav-link active" data-page="sales" href="sales.html">Sales</a>
+        <a class="nav-link " data-page="drawings" href="drawings.html">Drawings</a>
+        <a class="nav-link " data-page="income" href="income.html">Income</a>
+        <a class="nav-link " data-page="settings" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Sales</h1>
+        <div><span data-currency-code>GHS</span></div>
+      </header>
+      <div class="page">
+        <div class="page-header">
+          <div>
+            <h2>Sales</h2>
+            <p>Search, filter and reverse sales without deleting history.</p>
+          </div>
+          <div class="actions"><button class="btn btn-primary" data-action="new-sale">New Sale</button></div>
+        </div>
+        
+<div class="filters">
+  <input id="salesSearch" type="search" placeholder="Search product, payment or date…" aria-label="Search sales">
+  <select id="paymentFilter" aria-label="Filter by payment">
+    <option value="All">All payments</option>
+    <option>Cash</option><option>Mobile Money</option><option>Card</option><option>Credit</option>
+  </select>
+  <select id="statusFilter" aria-label="Filter by status">
+    <option value="All">All statuses</option>
+    <option>Completed</option><option>Voided</option>
+  </select>
+  <span id="salesResultCount" class="help-text" style="align-self:center">0 records</span><button class="btn" data-action="export-sales-csv">Export CSV</button><button class="btn" data-action="print-report">Print</button>
+</div>
+<section class="card">
+  <div class="table-wrap">
+    <table id="salesTable">
+      <thead><tr><th>Product</th><th>Qty</th><th>Unit Price</th><th>Amount</th><th>Payment</th><th>Date & time</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody id="salesBody"></tbody>
+    </table>
+        <div class="list-toggle-wrap">
+          <button id="salesListToggle" class="btn btn-secondary list-toggle" type="button" hidden>
+            More sales
+          </button>
+        </div>
+  </div>
+</section>
+
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

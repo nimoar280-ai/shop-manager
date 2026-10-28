@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home — My Little Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span data-shop-name>My Little Shop</span><small>Private Shop Manager</small></div>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link active" data-page="home" href="index.html">Home</a>
+        <a class="nav-link " data-page="stock" href="stock.html">Stock</a>
+        <a class="nav-link " data-page="sales" href="sales.html">Sales</a>
+        <a class="nav-link " data-page="expenses" href="expenses.html">Expenses</a>
+        <a class="nav-link " data-page="drawings" href="drawings.html">Drawings</a>
+        <a class="nav-link " data-page="income" href="income.html">Income</a>
+        <a class="nav-link " data-page="settings" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Dashboard</h1>
+        <div><span data-currency-code>GHS</span></div>
+      </header>
+      <div class="page">
+        <div class="page-header">
+          <div>
+            <h2>Dashboard</h2>
+            <p>A local overview of your shop activity.</p>
+          </div>
+          <div class="actions"><button class="btn btn-primary" data-action="new-sale">New Sale</button><button class="btn" data-action="add-product">Add Product</button></div>
+        </div>
+        
+<div class="stats-grid">
+  <section class="stat-card"><div class="stat-label">Revenue Today</div><div class="stat-value" id="statRevenueToday">GH₵0.00</div></section>
+  <a class="stat-card stat-card-link" href="sales.html" aria-label="Open Sales page"><div class="stat-label">Sales Today</div><div class="stat-value" id="statSalesToday">0</div><div class="help-text">Open sales →</div></a>
+  <section class="stat-card"><div class="stat-label">Profit Today</div><div class="stat-value" id="statProfitToday">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Products</div><div class="stat-value" id="statProducts">0</div></section>
+  <section class="stat-card"><div class="stat-label">Stock Value (at cost)</div><div class="stat-value" id="statStockValue">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Expenses Today</div><div class="stat-value" id="statExpensesToday">GH₵0.00</div></section>
+</div>
+<section class="card">
+  <div class="section-heading-row">
+    <div><h3>Revenue History</h3><p class="help-text">Choose a period to review completed sales, revenue and profit.</p></div>
+    <label class="compact-field"><span class="sr-only">Revenue history period</span><select id="homeRevenuePeriod">
+      <option value="this-week">This week</option>
+      <option value="last-week">Last week</option>
+      <option value="this-month">This month</option>
+      <option value="last-month">Last month</option>
+    </select></label>
+  </div>
+  <div class="stats-grid stats-grid-compact">
+    <section class="stat-card"><div class="stat-label" id="homeRevenuePeriodLabel">Revenue — This week</div><div class="stat-value" id="homeHistoryRevenue">GH₵0.00</div></section>
+    <section class="stat-card"><div class="stat-label">Profit</div><div class="stat-value" id="homeHistoryProfit">GH₵0.00</div></section>
+    <section class="stat-card"><div class="stat-label">Completed Sales</div><div class="stat-value" id="homeHistorySales">0</div></section>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Sales</th><th>Revenue</th><th>Profit</th></tr></thead>
+      <tbody id="homeRevenueHistoryBody"></tbody>
+    </table>
+  </div>
+</section>
+<section class="card">
+  <div class="section-heading-row"><h3>Recent Sales</h3><a class="btn btn-small" href="sales.html">View all sales →</a></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Product</th><th>Qty</th><th>Amount</th><th>Payment</th><th>Date & time</th></tr></thead>
+      <tbody id="recentSalesBody"></tbody>
+    </table>
+  </div>
+</section>
+<section class="card" style="margin-top:18px">
+  <div class="section-heading-row"><div><h3>Low-stock products</h3><p class="help-text"><span id="statLowStock">0</span> products are at or below their reorder level.</p></div><a class="btn btn-small" href="stock.html">Manage stock →</a></div>
+  <div class="table-wrap"><table><thead><tr><th>Product</th><th>Available</th><th>Reorder at</th><th>Status</th><th>Action</th></tr></thead><tbody id="homeLowStockBody"></tbody></table></div>
+</section>
+<section class="card" style="margin-top:18px">
+  <div class="section-heading-row"><div><h3>Best-selling products</h3><p class="help-text">Ranked by units sold across completed sales.</p></div><a class="btn btn-small" href="sales.html">View sales →</a></div>
+  <div class="table-wrap"><table><thead><tr><th>Product</th><th>Units sold</th><th>Revenue</th><th>Gross profit</th></tr></thead><tbody id="homeBestSellersBody"></tbody></table></div>
+</section>
+<section class="card" style="margin-top:18px">
+  <div class="section-heading-row"><div><h3>Daily cash closing</h3><p class="help-text">Reconcile cash sales less cash expenses against the cash counted in the drawer.</p></div><button class="btn btn-primary" data-action="daily-closing">Close day / reconcile cash</button></div>
+  <p><span id="todayClosingStatus" class="status status-muted">Not closed yet</span></p>
+</section>
+<div class="grid-2" style="margin-top:18px">
+  <section class="card"><h3>Quick actions</h3><div class="actions"><button class="btn" data-action="new-expense">Record expense</button><a class="btn" href="expenses.html">View expenses</a><button class="btn" data-action="print-report">Print dashboard</button></div></section>
+  <section class="card"><h3>Data safety</h3><p class="help-text">Shop data is stored in this browser. Export a JSON backup regularly from Settings and keep a copy outside this device.</p><a class="btn btn-small" href="settings.html">Backup settings →</a></section>
+</div>
+
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

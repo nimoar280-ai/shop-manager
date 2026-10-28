@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Income — My Little Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="income">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span data-shop-name>My Little Shop</span><small>Private Shop Manager</small></div>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link " data-page="home" href="index.html">Home</a>
+        <a class="nav-link " data-page="stock" href="stock.html">Stock</a>
+        <a class="nav-link " data-page="sales" href="sales.html">Sales</a>
+        <a class="nav-link " data-page="expenses" href="expenses.html">Expenses</a>
+        <a class="nav-link " data-page="drawings" href="drawings.html">Drawings</a>
+        <a class="nav-link active" data-page="income" href="income.html">Income</a>
+        <a class="nav-link " data-page="settings" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Income</h1>
+        <div><span data-currency-code>GHS</span></div>
+      </header>
+      <div class="page">
+        <div class="page-header">
+          <div>
+            <h2>Income</h2>
+            <p>Review completed sales, gross profit and recorded expenses. Profit after expenses is an estimate based on all recorded expenses.</p>
+          </div>
+          
+        </div>
+        
+<div class="stats-grid">
+  <section class="stat-card"><div class="stat-label">Total Revenue</div><div class="stat-value" id="incomeRevenue">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Total Profit</div><div class="stat-value" id="incomeProfit">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Completed Sales</div><div class="stat-value" id="incomeSales">0</div></section>
+  <section class="stat-card"><div class="stat-label">Recorded Expenses</div><div class="stat-value" id="incomeExpenses">GH₵0.00</div></section>
+  <section class="stat-card"><div class="stat-label">Profit After Expenses</div><div class="stat-value" id="incomeNetProfit">GH₵0.00</div></section>
+</div>
+<div class="actions" style="margin-bottom:16px"><button class="btn" data-action="print-report">Print income report</button><a class="btn" href="expenses.html">Review expenses</a></div>
+<section class="card">
+  <h3>Revenue — Last 7 Days</h3>
+  <p class="help-text">Bars use completed sales and the shop's local business date.</p>
+  <div class="chart" id="incomeChart" aria-label="Revenue chart for the last 7 days"></div>
+</section>
+
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

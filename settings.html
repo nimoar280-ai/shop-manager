@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings — My Little Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="settings">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span data-shop-name>My Little Shop</span><small>Private Shop Manager</small></div>
+      
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link " data-page="home" href="index.html">Home</a>
+        <a class="nav-link " data-page="stock" href="stock.html">Stock</a>
+        <a class="nav-link " data-page="sales" href="sales.html">Sales</a>
+        <a class="nav-link " data-page="expenses" href="expenses.html">Expenses</a>
+        <a class="nav-link " data-page="drawings" href="drawings.html">Drawings</a>
+        <a class="nav-link " data-page="income" href="income.html">Income</a>
+        <a class="nav-link active" data-page="settings" href="settings.html">Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <h1>Settings</h1>
+        <div><span data-currency-code>GHS</span></div>
+      </header>
+      <div class="page">
+        <div class="page-header">
+          <div>
+            <h2>Settings</h2>
+            <p>Configure shop preferences and protect your local records with backups.</p>
+          </div>
+          
+        </div>
+        
+<form id="settingsForm" class="card settings-grid">
+  <label>Shop name
+    <input id="shopName" name="shopName" maxlength="80" required>
+  </label>
+  <label>Currency
+    <select id="currency" name="currency">
+      <option value="GHS">GHS — Ghanaian Cedi</option>
+      <option value="USD">USD — US Dollar</option>
+      <option value="NGN">NGN — Nigerian Naira</option>
+      <option value="GBP">GBP — British Pound</option>
+      <option value="EUR">EUR — Euro</option>
+    </select>
+  </label>
+  <p class="help-text">Currency changes how values are displayed; it does not convert stored amounts.</p>
+  <div class="form-actions"><button class="btn btn-primary" type="submit">Save settings</button></div>
+</form>
+
+<section class="card" style="margin-top:18px">
+  <h3>Local Data Backup</h3>
+  <p class="help-text">Because this app uses browser storage, clearing site data can remove the shop. Export a JSON backup regularly. “Reset shop to zero” removes all shop records while keeping your shop name and currency settings.</p>
+  <div class="actions">
+    <button id="exportData" class="btn">Export JSON backup</button>
+    <label class="btn">Import JSON backup<input id="importData" type="file" accept="application/json,.json" hidden></label>
+    <button id="resetShopData" class="btn btn-danger">Reset shop to zero</button>
+    <button id="clearLocalData" class="btn btn-danger">Clear local data</button>
+  </div>
+</section>
+
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
